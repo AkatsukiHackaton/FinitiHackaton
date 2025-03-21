@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AkatsukiSolution.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+862cf706f6122b1e999515ba55775979da5f5a32")]
 [assembly: System.Reflection.AssemblyProductAttribute("AkatsukiSolution.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AkatsukiSolution.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

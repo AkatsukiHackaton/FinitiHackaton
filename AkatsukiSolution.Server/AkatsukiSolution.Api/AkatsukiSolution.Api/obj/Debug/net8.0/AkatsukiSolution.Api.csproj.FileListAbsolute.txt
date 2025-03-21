@@ -31,3 +31,4 @@ C:\Users\nikola.djurkovic\Documents\Programiranje\FinitiHackaton\AkatsukiSolutio
 C:\Users\nikola.djurkovic\Documents\Programiranje\FinitiHackaton\AkatsukiSolution.Server\AkatsukiSolution.Api\AkatsukiSolution.Api\obj\Debug\net8.0\AkatsukiSolution.Api.pdb
 C:\Users\nikola.djurkovic\Documents\Programiranje\FinitiHackaton\AkatsukiSolution.Server\AkatsukiSolution.Api\AkatsukiSolution.Api\obj\Debug\net8.0\AkatsukiSolution.Api.genruntimeconfig.cache
 C:\Users\nikola.djurkovic\Documents\Programiranje\FinitiHackaton\AkatsukiSolution.Server\AkatsukiSolution.Api\AkatsukiSolution.Api\obj\Debug\net8.0\ref\AkatsukiSolution.Api.dll
+C:\Users\nikola.djurkovic\Documents\Programiranje\FinitiHackaton\AkatsukiSolution.Server\akatsukisolution.api\akatsukisolution.api\obj\Debug\net8.0\AkatsukiSolution.Api.sourcelink.json
