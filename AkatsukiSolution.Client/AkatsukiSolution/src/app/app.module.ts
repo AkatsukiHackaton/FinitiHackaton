@@ -9,7 +9,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HeaderComponent } from './components/header/header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { TableComponent } from './components/table/table.component';
     HeaderComponent,
     TableComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,  ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,  ReactiveFormsModule, FormsModule],
   providers: [TestService],
   bootstrap: [AppComponent],
 })

@@ -14,6 +14,6 @@ export class WorkingDayService {
   url:string = environment.testUrl
 
   getWorkingDay(employeeId: number): Observable<WorkingDay>{
-    return this.http.get<WorkingDay>(this.url + 'WorkingDays/' + employeeId)
+    return this.http.get<WorkingDay>(this.url + 'WorkingDays/get/' + employeeId)
   }
 }

@@ -6,6 +6,6 @@ export class WorkingDay {
     date!: Date;
     taskDescription!: string;
     hours!: number;
-    employee!: User;
-    project!: Project
+    employeeId!: number;
+    projectId!: number;
 }

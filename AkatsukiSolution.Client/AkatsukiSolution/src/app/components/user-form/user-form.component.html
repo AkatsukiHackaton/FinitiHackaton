@@ -1,7 +1,7 @@
 <div class="form-container">
   <app-button
     [btnClass]="'small'"
-    [title]="'Dodaj +'"
+    [title]="'Додај +'"
     (btnClickEvent)="addFormItem()"
   ></app-button>
   <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
@@ -12,7 +12,7 @@
         class="form-item"
       >
         <div class="form-group">
-          <label for="date{{ i }}">Datum:</label>
+          <label for="date{{ i }}">Датум:</label>
           <input
             id="date{{ i }}"
             formControlName="date"
@@ -21,22 +21,30 @@
           />
         </div>
         <div class="form-group">
-          <label for="task{{ i }}">Zadatak:</label>
+          <label for="task{{ i }}">Задатак:</label>
           <input
-            id="task{{ i }}"
-            formControlName="task"
-            type="text"
-            class="form-control"
+          id="task{{ i }}"
+          formControlName="task"
+          type="text"
+          class="form-control"
           />
         </div>
         <div class="form-group">
-          <label for="description{{ i }}">Opis:</label>
+          <label for="description{{ i }}">Опис:</label>
           <input
-            id="description{{ i }}"
-            formControlName="description"
-            type="text"
-            class="form-control"
+          id="description{{ i }}"
+          formControlName="description"
+          type="text"
+          class="form-control"
           />
+        </div>
+        <div class="form-group">
+          <label for="task{{ i }}">Пројекат:</label>
+          <select name="task{{ i }}" id="task{{ i }}" formControlName="project" name="selectedProjectId">
+            <option *ngFor="let project of projects" [value]="project.id"> 
+              {{ project.name }}
+            </option>
+          </select>
         </div>
         <div class="form-group">
           <label for="workingHours{{ i }}">Broj sati:</label>
@@ -53,6 +61,7 @@
           [btnClass]="'small'"
           [title]="'Obrisi -'"
           (btnClickEvent)="deleteFormItem(i)"
+          type="'submit'"
         ></app-button>
       </div>
     </div>
@@ -62,7 +71,8 @@
       class="btn btn-primary"
       [disabled]="employeeForm.invalid"
     >
-      Potvrdi
+      Потврди
     </button>
   </form>
+    <app-table [headers]="headers" [data]="employeeData"></app-table>
 </div>

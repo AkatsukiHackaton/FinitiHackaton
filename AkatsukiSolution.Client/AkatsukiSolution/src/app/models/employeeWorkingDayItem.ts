@@ -4,6 +4,7 @@ export class EmployeeWorkingDayItem {
     date!: Date | string;
     task!: string
     description!: string;
+    project!:string;
     workingHours!: number;
 
 }

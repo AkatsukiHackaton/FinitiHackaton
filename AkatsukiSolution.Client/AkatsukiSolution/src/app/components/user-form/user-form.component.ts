@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Project } from 'src/app/models/project';
+import { WorkingDay } from 'src/app/models/workingDay';
 
 @Component({
   selector: 'app-user-form',
@@ -14,11 +16,60 @@ export class UserFormComponent {
     });
   }
 
+  selectedProjectId: number | null = null;
+
+  projects: Project[] = [
+    { id: 1, name: 'TipTimes', managerId: 4 },
+    { id: 2, name: 'Zlatni standard', managerId: 5 },
+    { id: 3, name: 'MediGroup', managerId: 3 },
+  ];
+
+  headers = [
+    { key: 'id', value: 'Ид' },
+    { key: 'date', value: 'Датум' },
+    { key: 'task', value: 'Задатак' },
+    { key: 'description', value: 'Опис' },
+    { key: 'project', value: 'Пројекат' },
+    { key: 'workingHours', value: 'Број сати' },
+  ];
+
+  employeeData = [
+    {
+      id: 1,
+      date: new Date().toDateString(),
+      task: 'test',
+      description: 'test',
+      project: 'Zlatni standard',
+      workingHours: 7,
+    },
+    {
+      id: 2,
+      date: new Date().toDateString(),
+      task: 'test1',
+      description: 'test1',
+      project: 'Medigroup',
+      workingHours: 6,
+    },
+    {
+      id: 3,
+      date: new Date().toDateString(),
+      task: 'test1',
+      description: 'test1',
+      project: 'TipTimes',
+      workingHours: 6.5,
+    },
+  ];
+
+  ngOnInit() {
+    this.headers.shift();
+  }
+
   createFormItem(): FormGroup {
     return this.fb.group({
       date: ['', Validators.required],
       task: ['', Validators.required],
       description: ['', Validators.required],
+      project: [''],
       workingHours: [
         0,
         [Validators.required, Validators.min(0.1), Validators.max(10)],
@@ -28,6 +79,11 @@ export class UserFormComponent {
 
   get formItems(): FormArray {
     return this.employeeForm.get('formItems') as FormArray;
+  }
+
+  mapWorkingDay() {
+    const workingDay: WorkingDay = this.formItems.value[0];
+    console.log(workingDay);
   }
 
   addFormItem(): void {
@@ -40,5 +96,6 @@ export class UserFormComponent {
 
   onSubmit(): void {
     console.log(this.formItems.value);
+    this.mapWorkingDay();
   }
 }
