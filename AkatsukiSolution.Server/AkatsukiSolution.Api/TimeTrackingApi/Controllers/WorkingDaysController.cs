@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
 using TimeTrackingApi.Models;
+using TimeTrackingApi.ModelsDto;
 
 namespace TimeTrackingApi.Controllers
 {
@@ -23,7 +24,7 @@ namespace TimeTrackingApi.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> Add([FromBody] WorkingDay workingDay)
+        public async Task<IActionResult> Add([FromBody] WorkingDayDto workingDay)
         {
             return Ok(await _workingDayRepository.Add(workingDay));
         }
@@ -35,7 +36,7 @@ namespace TimeTrackingApi.Controllers
         }
 
         [HttpPatch("edit")]
-        public async Task<IActionResult> Edit([FromBody] WorkingDay workingDay)
+        public async Task<IActionResult> Edit([FromBody] WorkingDayDto workingDay)
         {
             return Ok(_workingDayRepository.Edit(workingDay));
         }
