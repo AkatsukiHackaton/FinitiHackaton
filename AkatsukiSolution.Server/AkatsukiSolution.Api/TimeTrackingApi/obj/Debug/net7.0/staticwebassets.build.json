@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "bZxgwA36UsXY/NUwSzRedRs6r1AH5FDkZvomtA4NtNI=",
+  "Hash": "8tbqMhNXtDktw+IVwt/X2y1RRwPS3WJHb+DuHzeax4A=",
   "Source": "TimeTrackingApi",
   "BasePath": "_content/TimeTrackingApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
