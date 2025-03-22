@@ -22,12 +22,12 @@ namespace TimeTrackingApi.Infrastructure.Context.Configurations
                 .IsRequired();
 
             builder
-                .HasOne(wd => wd.Employee);
-
-            builder
-                .HasOne(wd => wd.Project)
+                .HasOne(wd => wd.Employee)
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder
+                .HasOne(wd => wd.Project);
         }
     }
 }

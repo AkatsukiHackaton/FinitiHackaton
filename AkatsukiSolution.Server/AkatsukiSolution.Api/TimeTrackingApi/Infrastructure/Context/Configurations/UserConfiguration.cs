@@ -19,7 +19,20 @@ namespace TimeTrackingApi.Infrastructure.Context.Configurations
                 .IsRequired();
 
             builder
+                .Property(u => u.Title)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder
+                .Property(u => u.Username)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder
                 .HasOne(wd => wd.Role);
+
+            builder
+                .HasOne(wd => wd.Manager);
         }
     }
 }

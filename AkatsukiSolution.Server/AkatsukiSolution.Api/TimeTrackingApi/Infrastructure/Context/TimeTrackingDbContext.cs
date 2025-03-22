@@ -7,9 +7,6 @@ namespace TimeTrackingApi.Infrastructure.Context
 {
     public class TimeTrackingDbContext : DbContext, ITimeTrackingDbContext
     {
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Manager> Managers { get; set; }
-        //public DbSet<EmployeeManager> EmployeeManagers { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
@@ -24,8 +21,6 @@ namespace TimeTrackingApi.Infrastructure.Context
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new ManagerConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
