@@ -26,5 +26,10 @@ namespace TimeTrackingApi.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new WorkingDayConfiguration());
         }
+
+        internal async Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

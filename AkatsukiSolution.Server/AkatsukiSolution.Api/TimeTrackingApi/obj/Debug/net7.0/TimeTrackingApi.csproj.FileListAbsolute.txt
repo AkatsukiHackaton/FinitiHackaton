@@ -74,3 +74,14 @@ C:\Users\marko.momcilovic\Source\Repos\FinitiHackaton\AkatsukiSolution.Server\Ak
 C:\Users\marko.momcilovic\Source\Repos\FinitiHackaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.pdb
 C:\Users\marko.momcilovic\Source\Repos\FinitiHackaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.genruntimeconfig.cache
 C:\Users\marko.momcilovic\Source\Repos\FinitiHackaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\ref\TimeTrackingApi.dll
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.csproj.AssemblyReference.cache
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.AssemblyInfoInputs.cache
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.AssemblyInfo.cs
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.csproj.CoreCompileInputs.cache
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.sourcelink.json
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.dll
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\refint\TimeTrackingApi.dll
+C:\Projects\Hakaton\AkatsukiSolution.Server\AkatsukiSolution.Api\TimeTrackingApi\obj\Debug\net7.0\TimeTrackingApi.pdb

@@ -1,4 +1,6 @@
-﻿namespace TimeTrackingApi.Models
+﻿using TimeTrackingApi.ModelsDto;
+
+namespace TimeTrackingApi.Models
 {
     public class WorkingDay : BaseModel
     {

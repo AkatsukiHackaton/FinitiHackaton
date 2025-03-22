@@ -18,6 +18,7 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddTransient<IWorkingDayRepository, WorkingDayRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
 
 var app = builder.Build();
 
