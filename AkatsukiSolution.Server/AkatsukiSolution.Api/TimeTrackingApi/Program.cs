@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using TimeTrackingApi.Infrastructure;
+using TimeTrackingApi.Infrastructure.Context;
 using TimeTrackingApi.Infrastructure.Repositories;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
 
@@ -18,6 +20,12 @@ builder.Services.AddTransient<IWorkingDayRepository, WorkingDayRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<TimeTrackingDbContext>();
+    await context.Database.MigrateAsync();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
