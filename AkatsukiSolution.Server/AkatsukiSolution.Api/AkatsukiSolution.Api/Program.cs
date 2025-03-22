@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-app.UseCors("AllowAlll");
+app.UseCors("AllowAll");
 app.UseSwagger();
 app.UseSwaggerUI();
 
