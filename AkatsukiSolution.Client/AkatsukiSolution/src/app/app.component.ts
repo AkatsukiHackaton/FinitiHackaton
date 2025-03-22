@@ -10,10 +10,5 @@ export class AppComponent {
   constructor(private testService: TestService) {}
   response!: string | null;
   ngOnInit() {
-    this.testService
-      .testEndpoint()
-      .subscribe((data) => (this.response = data ?? null));
-      console.log('push test');
-      
   }
 }
