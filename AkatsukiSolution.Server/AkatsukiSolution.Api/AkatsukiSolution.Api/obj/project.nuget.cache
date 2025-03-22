@@ -1,16 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W5hKA7Zr/VQ=",
+  "dgSpecHash": "RX4lNq8y8XsmekC0FoQQXsftMOB/uYSfKTUFxsg3CKfpRPGoaKjnI4rMknHojNDPbgoAqjr21BO1t3d/DlKxOQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nikola.djurkovic\\Documents\\Programiranje\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.11\\microsoft.aspnetcore.openapi.8.0.11.nupkg.sha512",
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
-    "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
