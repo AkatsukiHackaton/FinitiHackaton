@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "2jh/SfywkQsxYgFy/8JyZWiNh1N0PWqxY5/MZc9WamlmBvuT/vIklB/kkepuh4ptOe16pSgES1CR6aB5wGKPbQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj",
+  "projectFilePath": "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marko.momcilovic\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\marko.momcilovic\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
