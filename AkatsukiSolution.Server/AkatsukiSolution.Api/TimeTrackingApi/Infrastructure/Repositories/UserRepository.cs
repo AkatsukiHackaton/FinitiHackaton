@@ -18,7 +18,11 @@ namespace TimeTrackingApi.Infrastructure.Repositories
         [HttpGet]
         public async Task<List<User>> GetAllEmployees()
         {
-            return await _timeTrackingContext.Users.Include(u => u.Role).Where(u => u.Role.Name == RoleEnum.Employee.ToString()).ToListAsync();
+            return await _timeTrackingContext
+                .Users
+                .Include(u => u.Role)
+                .Where(u => u.Role.Name == RoleEnum.Employee.ToString())
+                .ToListAsync();
         }
     }
 }

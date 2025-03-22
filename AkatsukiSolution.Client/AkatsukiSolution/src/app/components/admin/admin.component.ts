@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EmployeeWorkingDayItem } from 'src/app/models/employeeWorkingDayItem';
+import { WorkingDayService } from 'src/app/services/workingDay/working-day.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
+  constructor(private workingDayService: WorkingDayService){}
   headers = [
     { key: 'id', value: 'Ид' },
     { key: 'fullName', value: 'Име и презиме' },
@@ -15,7 +18,7 @@ export class AdminComponent {
     { key: 'workingHours', value: 'Број сати' },
   ];
 
-  employeeData = [
+  employeeData: EmployeeWorkingDayItem[] = [
     {
       id: 1,
       fullName: 'Nikola Dj',
@@ -43,5 +46,7 @@ export class AdminComponent {
   ];
   ngOnInit() {
     this.headers.shift();
+    this.workingDayService.getWorkingDay(1).subscribe(data => console.log(data));
+    
   }
 }
