@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikola.djurkovic\\Documents\\Programiranje\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj": {}
+    "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikola.djurkovic\\Documents\\Programiranje\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj": {
+    "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikola.djurkovic\\Documents\\Programiranje\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj",
+        "projectUniqueName": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj",
         "projectName": "AkatsukiSolution.Api",
-        "projectPath": "C:\\Users\\nikola.djurkovic\\Documents\\Programiranje\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj",
-        "packagesPath": "C:\\Users\\nikola.djurkovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikola.djurkovic\\Documents\\Programiranje\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\obj\\",
+        "projectPath": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\AkatsukiSolution.Api.csproj",
+        "packagesPath": "C:\\Users\\pavle.lazarevic\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\AkatsukiSolution.Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nikola.djurkovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pavle.lazarevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/finiti-solutions/226e1cc1-5463-4ab6-b0c6-119fa8cd84d7/_packaging/eGov/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -40,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -74,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
