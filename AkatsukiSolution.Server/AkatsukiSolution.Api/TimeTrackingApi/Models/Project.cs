@@ -1,8 +1,7 @@
 ﻿namespace TimeTrackingApi.Models
 {
-    public class Project
+    public class Project : BaseModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public Manager Manager { get; set; }
     }

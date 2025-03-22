@@ -6,8 +6,8 @@ namespace TimeTrackingApi.Infrastructure.Repositories
 {
     public class WorkingDayRepository : IWorkingDayRepository
     {
-        readonly TimeTrackingContext _timeTrackingContext;
-        public WorkingDayRepository(TimeTrackingContext timeTrackingContext) 
+        readonly TimeTrackingDbContext _timeTrackingContext;
+        public WorkingDayRepository(TimeTrackingDbContext timeTrackingContext) 
         { 
             _timeTrackingContext = timeTrackingContext;
         }
