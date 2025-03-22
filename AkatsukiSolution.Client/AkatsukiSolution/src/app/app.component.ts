@@ -13,5 +13,7 @@ export class AppComponent {
     this.testService
       .testEndpoint()
       .subscribe((data) => (this.response = data ?? null));
+      console.log('push test');
+      
   }
 }
