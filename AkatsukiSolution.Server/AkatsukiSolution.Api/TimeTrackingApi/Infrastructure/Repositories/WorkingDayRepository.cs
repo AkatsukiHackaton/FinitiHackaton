@@ -51,9 +51,9 @@ namespace TimeTrackingApi.Infrastructure.Repositories
             }
         }
 
-        public async Task<List<WorkingDay>> GetByEmployId(int EmployeeId)
+        public async Task<List<WorkingDay>> GetByEmployId(int UserId)
         {
-            return await _timeTrackingContext.WorkingDays.Where(wd => wd.Employee.Id == EmployeeId).ToListAsync();
+            return await _timeTrackingContext.WorkingDays.Where(wd => wd.Employee.Id == UserId).ToListAsync();
         }
     }
 }

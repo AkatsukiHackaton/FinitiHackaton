@@ -1,4 +1,6 @@
 using TimeTrackingApi.Infrastructure;
+using TimeTrackingApi.Infrastructure.Repositories;
+using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
+builder.Services.AddTransient<IWorkingDayRepository, WorkingDayRepository>();
 
 var app = builder.Build();
 
