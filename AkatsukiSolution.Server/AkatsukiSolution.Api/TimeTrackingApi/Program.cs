@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddTransient<IWorkingDayRepository, WorkingDayRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

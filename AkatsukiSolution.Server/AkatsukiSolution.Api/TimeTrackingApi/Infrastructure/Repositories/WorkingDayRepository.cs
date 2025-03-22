@@ -13,6 +13,11 @@ namespace TimeTrackingApi.Infrastructure.Repositories
             _timeTrackingContext = timeTrackingContext;
         }
 
+        public async Task<List<WorkingDay>> GetWorkingDays(int userId)
+        {
+            return await _timeTrackingContext.WorkingDays.Where(wd => wd.Employee.Id == userId).ToListAsync();
+        }
+
         public async Task<int> Add(WorkingDay workingDay)
         {
             if (workingDay != null)
@@ -49,11 +54,6 @@ namespace TimeTrackingApi.Infrastructure.Repositories
 
                 await _timeTrackingContext.SaveChangesAsync();
             }
-        }
-
-        public async Task<List<WorkingDay>> GetByEmployId(int UserId)
-        {
-            return await _timeTrackingContext.WorkingDays.Where(wd => wd.Employee.Id == UserId).ToListAsync();
         }
     }
 }

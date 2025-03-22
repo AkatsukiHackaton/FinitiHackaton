@@ -16,25 +16,25 @@ namespace TimeTrackingApi.Controllers
             _workingDayRepository = workingDayRepository;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetWorkingDays(int employeeId)
+        [HttpGet("get")]
+        public async Task<IActionResult> GetWorkingDays(int userId)
         {
-            return Ok(await _workingDayRepository.GetByEmployId(employeeId));
+            return Ok(await _workingDayRepository.GetWorkingDays(userId));
         }
 
-        [HttpPost]
+        [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] WorkingDay workingDay)
         {
             return Ok(await _workingDayRepository.Add(workingDay));
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public async Task<IActionResult> Delete(int id)
         {
             return Ok(_workingDayRepository.Delete(id));
         }
 
-        [HttpPatch]
+        [HttpPatch("edit")]
         public async Task<IActionResult> Edit([FromBody] WorkingDay workingDay)
         {
             return Ok(_workingDayRepository.Edit(workingDay));
