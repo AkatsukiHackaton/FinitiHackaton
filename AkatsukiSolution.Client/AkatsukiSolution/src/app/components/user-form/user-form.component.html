@@ -1,0 +1,68 @@
+<div class="form-container">
+  <app-button
+    [btnClass]="'small'"
+    [title]="'Dodaj +'"
+    (btnClickEvent)="addFormItem()"
+  ></app-button>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="formItems" class="formItems">
+      <div
+        *ngFor="let item of formItems.controls; let i = index"
+        [formGroupName]="i"
+        class="form-item"
+      >
+        <div class="form-group">
+          <label for="date{{ i }}">Datum:</label>
+          <input
+            id="date{{ i }}"
+            formControlName="date"
+            type="date"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="task{{ i }}">Zadatak:</label>
+          <input
+            id="task{{ i }}"
+            formControlName="task"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description{{ i }}">Opis:</label>
+          <input
+            id="description{{ i }}"
+            formControlName="description"
+            type="text"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="workingHours{{ i }}">Broj sati:</label>
+          <input
+            id="workingHours{{ i }}"
+            formControlName="workingHours"
+            type="number"
+            class="form-control-int"
+            min="0"
+            max="10"
+          />
+        </div>
+        <app-button
+          [btnClass]="'small'"
+          [title]="'Obrisi -'"
+          (btnClickEvent)="deleteFormItem(i)"
+        ></app-button>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="employeeForm.invalid"
+    >
+      Potvrdi
+    </button>
+  </form>
+</div>

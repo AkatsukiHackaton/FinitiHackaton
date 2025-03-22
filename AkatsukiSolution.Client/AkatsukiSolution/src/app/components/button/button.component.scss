@@ -1,0 +1,22 @@
+.app-button {
+    border: none;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    max-width: 100%;
+    transition: all 0.3s ease;
+    & .small {
+      width: 50px;
+      height: 100px;
+    }
+    &.medium {
+      width: 70px;
+      height: 140px;
+    }
+    &.large {
+      width: 100px;
+      height: 200px;
+    }
+}
