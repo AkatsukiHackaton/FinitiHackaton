@@ -15,6 +15,7 @@ export class AdminComponent {
     { key: 'date', value: 'Датум' },
     { key: 'task', value: 'Задатак' },
     { key: 'description', value: 'Опис' },
+    { key: 'project', value: 'Пројекат' },
     { key: 'workingHours', value: 'Број сати' },
   ];
 
@@ -25,6 +26,7 @@ export class AdminComponent {
       date: new Date().toDateString(),
       task: 'test',
       description: 'test',
+      project: 'Zlatni standard',
       workingHours: 7,
     },
     {
@@ -33,6 +35,7 @@ export class AdminComponent {
       date: new Date().toDateString(),
       task: 'test1',
       description: 'test1',
+      project: 'Medigroup',
       workingHours: 6,
     },
     {
@@ -41,6 +44,7 @@ export class AdminComponent {
       date: new Date().toDateString(),
       task: 'test1',
       description: 'test1',
+      project: 'TipTimes',
       workingHours: 6.5,
     },
   ];
