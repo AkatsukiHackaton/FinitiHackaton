@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj": {}
+    "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj": {
+    "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj",
+        "projectUniqueName": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj",
         "projectName": "TimeTrackingApi",
-        "projectPath": "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj",
-        "packagesPath": "C:\\Users\\marko.momcilovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marko.momcilovic\\Source\\Repos\\FinitiHackaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\obj\\",
+        "projectPath": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\TimeTrackingApi.csproj",
+        "packagesPath": "C:\\Users\\pavle.lazarevic\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Hakaton\\AkatsukiSolution.Server\\AkatsukiSolution.Api\\TimeTrackingApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\marko.momcilovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pavle.lazarevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -73,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

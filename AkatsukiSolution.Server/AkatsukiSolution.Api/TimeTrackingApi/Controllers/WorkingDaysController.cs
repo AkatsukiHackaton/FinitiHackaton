@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
+using TimeTrackingApi.Models;
 
 namespace TimeTrackingApi.Controllers
 {
@@ -18,8 +19,25 @@ namespace TimeTrackingApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetWorkingDays(int employeeId)
         {
-            throw new NotImplementedException();
+            return Ok(await _workingDayRepository.GetByEmployId(employeeId));
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] WorkingDay workingDay)
+        {
+            return Ok(await _workingDayRepository.Add(workingDay));
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(_workingDayRepository.Delete(id));
+        }
+
+        [HttpPatch]
+        public async Task<IActionResult> Edit([FromBody] WorkingDay workingDay)
+        {
+            return Ok(_workingDayRepository.Edit(workingDay));
         }
     }
 }
