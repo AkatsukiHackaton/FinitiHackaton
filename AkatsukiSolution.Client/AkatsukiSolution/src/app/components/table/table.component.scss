@@ -1,0 +1,30 @@
+table {
+  width: 80%;
+  color: #000;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  border-collapse: collapse;
+  box-sizing: border-box;
+
+  th,
+  tr {
+    border-bottom: 1px solid #acadad;
+    width: 100vw;
+    font-size: 14px;
+  }
+
+  thead {
+    th, tr {
+        font-size: 15px;
+        padding-right: 60%;
+    }
+  }
+
+  tbody {
+    td {
+        height: 30px;
+    }
+  }
+}
