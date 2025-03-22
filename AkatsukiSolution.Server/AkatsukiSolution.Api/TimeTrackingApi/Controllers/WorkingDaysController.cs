@@ -5,7 +5,7 @@ using TimeTrackingApi.Models;
 
 namespace TimeTrackingApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class WorkingDaysController : ControllerBase
     {
