@@ -29,7 +29,15 @@ namespace TimeTrackingApi.Infrastructure.Context
 
         internal async Task SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await base.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving changes: {ex.Message}");
+                throw;
+            }
         }
     }
 }
