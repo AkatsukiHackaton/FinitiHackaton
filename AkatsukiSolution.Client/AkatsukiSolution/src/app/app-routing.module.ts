@@ -6,14 +6,15 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 
 const routes: Routes = [
   {
-  path: '', component: AppComponent, pathMatch: 'full'
-},
-{
-  path: 'administracija', component: AdminComponent
-},
-{
-  path: 'zaposleni', component: UserFormComponent
-}];
+    path: '', redirectTo: '/запослени', pathMatch: 'full' 
+  },
+  {
+    path: 'администрација', component: AdminComponent
+  },
+  {
+    path: 'запослени', component: UserFormComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

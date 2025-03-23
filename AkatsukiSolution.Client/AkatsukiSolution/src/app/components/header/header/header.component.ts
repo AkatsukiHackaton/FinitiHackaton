@@ -14,9 +14,9 @@ export class panelItem  {
 export class HeaderComponent {
 
   items:panelItem[] = [
-    { id: 1,panel: 'FINITI izveštaji', active: false },
-    {id:2,panel: 'Administracija', active: false },
-    {id:3, panel: 'Zaposleni', active: false },
+    { id: 1,panel: `FINITI извештаји\n(coming soon!)`, active: false },
+    {id:2,panel: 'Администрација', active: false },
+    {id:3, panel: 'Запослени', active: false },
   ];
   toggle(index: number) {
     this.items.forEach((item: panelItem, i:number) => i === index ? item.active = true : item.active = false);

@@ -37,7 +37,7 @@ export class UserFormComponent {
     { key: 'id', value: 'Ид' },
     { key: 'date', value: 'Датум' },
     { key: 'employeeFullName', value: 'Име и презиме' },
-    { key: 'hours', value: 'број сати' },
+    { key: 'hours', value: 'Број сати' },
     { key: 'projectName', value: 'Пројекат' },
     { key: 'taskDescription', value: 'Задатак' },
   ];
