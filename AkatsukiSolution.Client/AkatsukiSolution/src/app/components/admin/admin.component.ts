@@ -20,7 +20,7 @@ export class AdminComponent {
     { key: 'id', value: 'Ид' },
     { key: 'date', value: 'Датум' },
     { key: 'employeeFullName', value: 'Име и презиме' },
-    { key: 'hours', value: 'број сати' },
+    { key: 'hours', value: 'Број сати' },
     { key: 'projectName', value: 'Пројекат' },
     { key: 'taskDescription', value: 'Задатак' },
   ];
@@ -42,7 +42,10 @@ export class AdminComponent {
 
   getAllWorkingDays() {
     this.workingDayService.getAllWorkingDays().subscribe((data) => {
-      this.employeeData = data;
+      this.employeeData = data.map((ed) => ({
+        ...ed,
+        date: ed.date.toLocaleString().slice(0, 10),
+      }));
       this.originalEmployeeData = [...this.employeeData];
       this.formProjectData(data);
     });
