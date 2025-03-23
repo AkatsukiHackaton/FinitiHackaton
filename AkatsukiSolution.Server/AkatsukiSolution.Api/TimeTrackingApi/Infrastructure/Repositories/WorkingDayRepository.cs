@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TimeTrackingApi.Infrastructure.Context;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
+using TimeTrackingApi.Logger;
 using TimeTrackingApi.Models;
 using TimeTrackingApi.ModelsDto;
 
@@ -9,9 +10,11 @@ namespace TimeTrackingApi.Infrastructure.Repositories
     public class WorkingDayRepository : IWorkingDayRepository
     {
         readonly TimeTrackingDbContext _timeTrackingContext;
-        public WorkingDayRepository(TimeTrackingDbContext timeTrackingContext)
+        readonly ITimeTrackingLogger _logger;
+        public WorkingDayRepository(TimeTrackingDbContext timeTrackingContext, ITimeTrackingLogger logger)
         {
             _timeTrackingContext = timeTrackingContext;
+            _logger = logger;
         }
 
         public async Task<List<WorkingDayViewModel>> GetWorkingDays(int? userId)
@@ -34,15 +37,20 @@ namespace TimeTrackingApi.Infrastructure.Repositories
         {
             if (workingDayDto == null)
             {
-                return 0;
+                throw new Exception("WorkingDayDto was null.");
             }
 
             var employee = await _timeTrackingContext.Users.FirstOrDefaultAsync(u => u.Id == workingDayDto.EmployeeId);
             var project = await _timeTrackingContext.Projects.FirstOrDefaultAsync(p => p.Id == workingDayDto.ProjectId);
 
-            if (employee == null || project == null)
+            if (employee == null)
             {
-                return 0;
+                throw new Exception("User employee not found.");
+            }
+
+            if (project == null)
+            {
+                throw new Exception("Project record not found.");
             }
 
             var workingDay = new WorkingDay
@@ -56,32 +64,56 @@ namespace TimeTrackingApi.Infrastructure.Repositories
 
             _timeTrackingContext.WorkingDays.Add(workingDay);
 
-            await _timeTrackingContext.SaveChangesAsync();
+            try
+            {
+                await _timeTrackingContext.SaveChangesAsync();
+            }
+            catch (Exception ex) 
+            {
+                _logger.Log(ex.Message);
+                throw;
+            }
 
             return workingDay.Id;
         }
 
         public async Task Delete(int workingDayId)
         {
-            var workingDay = _timeTrackingContext.WorkingDays.FirstOrDefaultAsync(wd => wd.Employee.Id == workingDayId).Result;
-
-            if (workingDay != null)
+            try
             {
-                _timeTrackingContext.WorkingDays.Remove(workingDay!);
+                var workingDay = await _timeTrackingContext.WorkingDays.FirstOrDefaultAsync(wd => wd.Employee.Id == workingDayId);
 
-                await _timeTrackingContext.SaveChangesAsync();
+                if (workingDay != null)
+                {
+                    _timeTrackingContext.WorkingDays.Remove(workingDay!);
+
+                    await _timeTrackingContext.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Log(ex.Message);
+                throw;
             }
         }
 
         public async Task Edit(WorkingDayDto workingDayDto)
         {
-            var existingWorkingDay = _timeTrackingContext.WorkingDays.FirstOrDefaultAsync(wd => wd.Id == workingDayDto.Id).Result;
+            try
+            { 
+                var existingWorkingDay = await _timeTrackingContext.WorkingDays.FirstOrDefaultAsync(wd => wd.Id == workingDayDto.Id);
 
-            if (existingWorkingDay != null)
+                if (existingWorkingDay != null)
+                {
+                    _timeTrackingContext.WorkingDays.Update(existingWorkingDay);
+
+                    await _timeTrackingContext.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
             {
-                _timeTrackingContext.WorkingDays.Update(existingWorkingDay);
-
-                await _timeTrackingContext.SaveChangesAsync();
+                _logger.Log(ex.Message);
+                throw;
             }
         }
     }
