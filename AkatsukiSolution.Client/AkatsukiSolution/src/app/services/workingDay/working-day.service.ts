@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
 import { WorkingDay } from 'src/app/models/workingDay';
+import { WorkingDayItemVm } from 'src/app/models/workingDayItemVm';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,12 @@ export class WorkingDayService {
   }
   url:string = environment.testUrl
 
-  getWorkingDay(employeeId: number): Observable<WorkingDay>{
-    return this.http.get<WorkingDay>(this.url + 'WorkingDays/get?userId=' + employeeId)
+  getWorkingDay(employeeId: number): Observable<WorkingDayItemVm[]>{
+    return this.http.get<WorkingDayItemVm[]>(this.url + 'WorkingDays/get?userId=' + employeeId)
+  }
+
+  getAllWorkingDays(): Observable<WorkingDayItemVm[]>{
+    return this.http.get<WorkingDayItemVm[]>(this.url + 'WorkingDays/get')
   }
 
   addWorkingDay(workingDay: WorkingDay): Observable<number>{

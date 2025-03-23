@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { EmployeeWorkingDayItem } from 'src/app/models/employeeWorkingDayItem';
+import * as XLSX from 'xlsx';
 import { TotalProjectTime } from 'src/app/models/totalProjectTime';
+import { User } from 'src/app/models/user';
+import { WorkingDayItemVm } from 'src/app/models/workingDayItemVm';
+import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { WorkingDayService } from 'src/app/services/workingDay/working-day.service';
 
 @Component({
@@ -9,103 +12,86 @@ import { WorkingDayService } from 'src/app/services/workingDay/working-day.servi
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
-  constructor(private workingDayService: WorkingDayService){}
+  constructor(
+    private workingDayService: WorkingDayService,
+    private employeeService: EmployeeService
+  ) {}
   headers = [
     { key: 'id', value: 'Ид' },
-    { key: 'fullName', value: 'Име и презиме' },
     { key: 'date', value: 'Датум' },
-    { key: 'task', value: 'Задатак' },
-    { key: 'description', value: 'Опис' },
-    { key: 'project', value: 'Пројекат' },
-    { key: 'workingHours', value: 'Број сати' },
+    { key: 'employeeFullName', value: 'Име и презиме' },
+    { key: 'hours', value: 'број сати' },
+    { key: 'projectName', value: 'Пројекат' },
+    { key: 'taskDescription', value: 'Задатак' },
   ];
 
-  employeeData: EmployeeWorkingDayItem[] = [
-    {
-      id: 1,
-      fullName: 'Nikola Dj',
-      date: new Date().toDateString(),
-      task: 'test',
-      description: 'test',
-      project: 'Zlatni standard',
-      workingHours: 7,
-    },
-    {
-      id: 2,
-      fullName: 'Marko M',
-      date: new Date().toDateString(),
-      task: 'test1',
-      description: 'test1',
-      project: 'Medigroup',
-      workingHours: 6,
-    },
-    {
-      id: 3,
-      fullName: 'Pavle L',
-      date: new Date().toDateString(),
-      task: 'test1',
-      description: 'test1',
-      project: 'TipTimes',
-      workingHours: 6.5,
-    },
-    {
-      id: 4,
-      fullName: 'Pavle L',
-      date: new Date().toDateString(),
-      task: 'test1',
-      description: 'test1',
-      project: 'Zlatni standard',
-      workingHours: 6.5,
-    },
-    {
-      id: 5,
-      fullName: 'Pavle L',
-      date: new Date().toDateString(),
-      task: 'test1',
-      description: 'test1',
-      project: 'Zlatni standard',
-      workingHours: 6.5,
-    },
-    {
-      id: 6,
-      fullName: 'Pavle L',
-      date: new Date().toDateString(),
-      task: 'test1',
-      description: 'test1',
-      project: 'Zlatni standard',
-      workingHours: 6.5,
-    },
-    {
-      id: 6,
-      fullName: 'Ilija Jakic',
-      date: new Date().toDateString(),
-      task: 'test1',
-      description: 'test1',
-      project: 'Mobilna aplikacija',
-      workingHours: 25,
-    },
-  ];
+  employeeData: WorkingDayItemVm[] = [];
 
-  totalProjectData!: TotalProjectTime[]
+  selectedEmployee = '';
+
+  employees: User[] = [];
+
+  originalEmployeeData: WorkingDayItemVm[] = [];
+
+  totalProjectData!: TotalProjectTime[];
   ngOnInit() {
     this.headers.shift();
-    this.workingDayService.getWorkingDay(2).subscribe(data => console.log(data));
-    this.formProjectData()
+    this.getAllEmployees();
+    this.getAllWorkingDays();
   }
 
-  formProjectData(){
-    const groupedData = this.employeeData.reduce((acc, curr) => {
-      if (acc[curr.project]) {
-        acc[curr.project] += curr.workingHours;
+  getAllWorkingDays() {
+    this.workingDayService.getAllWorkingDays().subscribe((data) => {
+      this.employeeData = data;
+      this.originalEmployeeData = [...this.employeeData];
+      this.formProjectData(data);
+    });
+  }
+
+  onSelectionChange(event: any) {
+    const selectedEmployee = event.target.value;
+
+    if(selectedEmployee === 'Сви запослени'){
+      this.getAllWorkingDays()
+    }
+    const filteredData = this.originalEmployeeData.filter(
+      (ed) => ed.employeeFullName === selectedEmployee
+    );
+
+    this.employeeData = filteredData;
+    this.formProjectData(filteredData)
+  }
+
+  getAllEmployees() {
+    this.employeeService
+      .getAllEmployees()
+      .subscribe((data) => {
+        this.employees = data
+        this.employees.unshift({id: -1, firstName: 'Сви', lastName: 'запослени', title: '', role: null, manager: null})
+      });
+  }
+
+  exportToExcel(): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.employeeData);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Employees');
+
+    XLSX.writeFile(wb, 'izvestaj.xlsx');
+  }
+
+  formProjectData(data: WorkingDayItemVm[]) {
+    const groupedData = data.reduce((acc, curr) => {
+      if (acc[curr.projectName]) {
+        acc[curr.projectName] += curr.hours;
       } else {
-        acc[curr.project] = curr.workingHours;
+        acc[curr.projectName] = curr.hours;
       }
       return acc;
     }, {} as { [key: string]: number });
 
-    this.totalProjectData = Object.keys(groupedData).map(projectName => ({
+    this.totalProjectData = Object.keys(groupedData).map((projectName) => ({
       projectName,
-      totalHours: groupedData[projectName]
+      totalHours: groupedData[projectName],
     }));
   }
 }

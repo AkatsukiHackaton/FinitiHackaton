@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { WorkingDayService } from './services/workingDay/working-day.service';
+import { ProjectService } from './services/project/project.service';
+import { EmployeeService } from './services/employee/employee.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { WorkingDayService } from './services/workingDay/working-day.service';
     GraphComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,  ReactiveFormsModule, FormsModule],
-  providers: [TestService, WorkingDayService],
+  providers: [TestService, WorkingDayService, ProjectService, EmployeeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

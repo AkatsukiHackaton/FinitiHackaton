@@ -20,7 +20,7 @@
             class="form-control"
           />
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="task{{ i }}">Задатак:</label>
           <input
           id="task{{ i }}"
@@ -28,33 +28,34 @@
           type="text"
           class="form-control"
           />
-        </div>
+        </div> -->
         <div class="form-group">
-          <label for="description{{ i }}">Опис:</label>
+          <label for="taskDescription{{ i }}">Опис:</label>
           <input
-          id="description{{ i }}"
-          formControlName="description"
+          id="taskDescription{{ i }}"
+          formControlName="taskDescription"
           type="text"
           class="form-control"
           />
         </div>
         <div class="form-group">
           <label for="task{{ i }}">Пројекат:</label>
-          <select name="task{{ i }}" id="task{{ i }}" formControlName="project" name="selectedProjectId">
-            <option *ngFor="let project of projects" [value]="project.id"> 
+          <select name="task{{ i }}" id="task{{ i }}" formControlName="projectId" name="selectedProjectId">
+            <option *ngFor="let project of projects" [value]="+project.id!"> 
               {{ project.name }}
             </option>
           </select>
         </div>
         <div class="form-group">
-          <label for="workingHours{{ i }}">Broj sati:</label>
+          <label for="hours{{ i }}">Broj sati:</label>
           <input
-            id="workingHours{{ i }}"
-            formControlName="workingHours"
+            id="hours{{ i }}"
+            formControlName="hours"
             type="number"
             class="form-control-int"
             min="0"
             max="10"
+            step="0.1"
           />
         </div>
         <!-- <app-button
@@ -74,7 +75,7 @@
     </div>
   </form>
   <div>
-    <app-table [headers]="headers" [data]="employeeData"></app-table>
+    <app-graph *ngIf="totalProjectData && totalProjectData.length > 0"  [projects]="totalProjectData"></app-graph>
   </div>
-  <app-graph [projects]="totalProjectData"></app-graph>
+  <app-table *ngIf="employeeData.length > 0" [headers]="headers" [data]="employeeData" style="margin-top: 50px;"></app-table>
 </div>
