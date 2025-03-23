@@ -18,7 +18,7 @@ namespace TimeTrackingApi.Infrastructure.Context.Configurations
                 .IsRequired();
 
             builder .Property(wd => wd.Hours)
-                .HasColumnType("decimal")
+                .HasColumnType("decimal(12,2)")
                 .IsRequired();
 
             builder
