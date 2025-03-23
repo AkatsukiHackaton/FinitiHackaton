@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeeWorkingDayItem } from 'src/app/models/employeeWorkingDayItem';
+import { TotalProjectTime } from 'src/app/models/totalProjectTime';
 import { WorkingDayService } from 'src/app/services/workingDay/working-day.service';
 
 @Component({
@@ -47,10 +48,64 @@ export class AdminComponent {
       project: 'TipTimes',
       workingHours: 6.5,
     },
+    {
+      id: 4,
+      fullName: 'Pavle L',
+      date: new Date().toDateString(),
+      task: 'test1',
+      description: 'test1',
+      project: 'Zlatni standard',
+      workingHours: 6.5,
+    },
+    {
+      id: 5,
+      fullName: 'Pavle L',
+      date: new Date().toDateString(),
+      task: 'test1',
+      description: 'test1',
+      project: 'Zlatni standard',
+      workingHours: 6.5,
+    },
+    {
+      id: 6,
+      fullName: 'Pavle L',
+      date: new Date().toDateString(),
+      task: 'test1',
+      description: 'test1',
+      project: 'Zlatni standard',
+      workingHours: 6.5,
+    },
+    {
+      id: 6,
+      fullName: 'Ilija Jakic',
+      date: new Date().toDateString(),
+      task: 'test1',
+      description: 'test1',
+      project: 'Mobilna aplikacija',
+      workingHours: 25,
+    },
   ];
+
+  totalProjectData!: TotalProjectTime[]
   ngOnInit() {
     this.headers.shift();
-    this.workingDayService.getWorkingDay(1).subscribe(data => console.log(data));
-    
+    this.workingDayService.getWorkingDay(2).subscribe(data => console.log(data));
+    this.formProjectData()
+  }
+
+  formProjectData(){
+    const groupedData = this.employeeData.reduce((acc, curr) => {
+      if (acc[curr.project]) {
+        acc[curr.project] += curr.workingHours;
+      } else {
+        acc[curr.project] = curr.workingHours;
+      }
+      return acc;
+    }, {} as { [key: string]: number });
+
+    this.totalProjectData = Object.keys(groupedData).map(projectName => ({
+      projectName,
+      totalHours: groupedData[projectName]
+    }));
   }
 }

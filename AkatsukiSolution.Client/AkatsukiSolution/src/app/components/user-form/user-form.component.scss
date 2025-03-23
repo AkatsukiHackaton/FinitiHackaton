@@ -1,13 +1,26 @@
+* {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: auto;
-  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
   .formItems {
     flex-direction: column;
     display: flex;
     font-size: 12px;
+    margin-bottom: 50px;
+
     .form-item {
       display: flex;
       flex-direction: row !important;
@@ -31,5 +44,21 @@
         }
       }
     }
+  }
+  .chart {
+    width: 100%;
+    max-width: 400px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .bar {
+    background: #3498db;
+    color: white;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: right;
+    border-radius: 3px;
   }
 }

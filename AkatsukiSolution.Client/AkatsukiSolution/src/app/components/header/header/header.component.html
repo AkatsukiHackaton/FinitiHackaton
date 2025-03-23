@@ -1,3 +1,3 @@
 <div class="header-container">
-    <li *ngFor="let item of items" class="panel" [routerLink]="item.toLowerCase()"><a>{{item}}</a></li>
+    <li *ngFor="let item of items; let i = index" class="panel" [routerLink]="item.panel.toLowerCase()"><a [class.active]="item.active" (click)="toggle(i)">{{item.panel}}</a></li>
 </div>

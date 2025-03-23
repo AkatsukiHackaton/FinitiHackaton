@@ -1,9 +1,9 @@
 <div class="form-container">
-  <app-button
+  <!-- <app-button
     [btnClass]="'small'"
     [title]="'Додај +'"
     (btnClickEvent)="addFormItem()"
-  ></app-button>
+  ></app-button> -->
   <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <div formArrayName="formItems" class="formItems">
       <div
@@ -57,22 +57,24 @@
             max="10"
           />
         </div>
-        <app-button
+        <!-- <app-button
           [btnClass]="'small'"
           [title]="'Obrisi -'"
           (btnClickEvent)="deleteFormItem(i)"
           type="'submit'"
-        ></app-button>
+        ></app-button> -->
+        <app-button
+          type="submit"
+          [btnClass]="'small confirm'"
+          [title]="'Potvrdi'"
+          [disabled]="!this.formItems.valid"
+        >
+        </app-button>
       </div>
     </div>
-
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="employeeForm.invalid"
-    >
-      Потврди
-    </button>
   </form>
+  <div>
     <app-table [headers]="headers" [data]="employeeData"></app-table>
+  </div>
+  <app-graph [projects]="totalProjectData"></app-graph>
 </div>
