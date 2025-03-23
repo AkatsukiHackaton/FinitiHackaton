@@ -45,4 +45,20 @@
       }
     }
   }
+  .chart {
+    width: 100%;
+    max-width: 400px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .bar {
+    background: #3498db;
+    color: white;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: right;
+    border-radius: 3px;
+  }
 }

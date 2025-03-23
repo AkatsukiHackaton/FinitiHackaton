@@ -11,6 +11,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HeaderComponent } from './components/header/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TableComponent } from './components/table/table.component';
     UserFormComponent,
     AdminComponent,
     HeaderComponent,
-    TableComponent
+    TableComponent,
+    GraphComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,  ReactiveFormsModule, FormsModule],
   providers: [TestService],

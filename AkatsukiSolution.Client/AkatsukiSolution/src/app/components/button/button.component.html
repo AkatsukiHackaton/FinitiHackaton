@@ -1,4 +1,4 @@
-<button class="app-button" [ngClass]="btnClass" (click)="btnClick()">
+<button class="app-button" [ngClass]="btnClass" (click)="btnClick()" [disabled]="disabled">
     <span *ngIf="title">{{ title }}</span>
     <ng-content></ng-content>
   </button>

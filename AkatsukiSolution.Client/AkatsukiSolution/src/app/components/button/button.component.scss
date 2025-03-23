@@ -17,6 +17,10 @@
       &:hover {
         background: rgb(7, 206, 7);
       }
+      &:disabled {
+        pointer-events: none;
+        background: grey;
+      }
     }
     &.medium {
       height: 70px;

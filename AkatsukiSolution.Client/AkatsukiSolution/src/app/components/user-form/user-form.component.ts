@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Project } from 'src/app/models/project';
+import { TotalProjectTime } from 'src/app/models/totalProjectTime';
 import { WorkingDay } from 'src/app/models/workingDay';
 
 @Component({
@@ -23,6 +24,8 @@ export class UserFormComponent {
     { id: 2, name: 'Zlatni standard', managerId: 5 },
     { id: 3, name: 'MediGroup', managerId: 3 },
   ];
+
+  totalProjectData!: TotalProjectTime[]
 
   headers = [
     { key: 'id', value: 'Ид' },
@@ -62,6 +65,7 @@ export class UserFormComponent {
 
   ngOnInit() {
     this.headers.shift();
+    this.formProjectData()
   }
 
   createFormItem(): FormGroup {
@@ -81,6 +85,22 @@ export class UserFormComponent {
     return this.employeeForm.get('formItems') as FormArray;
   }
 
+  formProjectData(){
+    const groupedData = this.employeeData.reduce((acc, curr) => {
+      if (acc[curr.project]) {
+        acc[curr.project] += curr.workingHours;
+      } else {
+        acc[curr.project] = curr.workingHours;
+      }
+      return acc;
+    }, {} as { [key: string]: number });
+
+    this.totalProjectData = Object.keys(groupedData).map(projectName => ({
+      projectName,
+      totalHours: groupedData[projectName]
+    }));
+  }
+
   mapWorkingDay() {
     const workingDay: WorkingDay = this.formItems.value[0];
     console.log(workingDay);
@@ -97,5 +117,6 @@ export class UserFormComponent {
   onSubmit(): void {
     console.log(this.formItems.value);
     this.mapWorkingDay();
+    this.formItems.reset()
   }
 }

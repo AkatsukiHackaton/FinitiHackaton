@@ -11,9 +11,9 @@
   .panel {
     a {
       transition: 1s ease;
-      display: inline-block; /* or 'block' */
-      height: 200px; /* Set your desired height */
-      line-height: 200px;
+      display: inline-block; 
+      height: 95px; 
+      line-height: 95px;
       :first-child {
         pointer-events: none;
       }
@@ -21,6 +21,9 @@
           background: #fff;
           color: #1d1d1d;
           font-size: 25px;
+          padding-left: +20px;
+          padding-right: +20px;
+          border-bottom: 5px solid #253965;
         }
         &:hover {
           @extend .active;
