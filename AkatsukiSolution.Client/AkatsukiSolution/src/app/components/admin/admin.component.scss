@@ -7,3 +7,20 @@
     height: 100%;
     margin-top: 40px;
 }
+.container {
+    .filters {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        .form-group {
+            label {
+                margin-bottom: -30px;
+            }
+            select {
+                width: 30%;
+            }
+
+        }
+    }
+}

@@ -13,7 +13,6 @@
       &.confirm {
         background: rgb(47, 216, 47);
       }
-
       &:hover {
         background: rgb(7, 206, 7);
       }
@@ -25,6 +24,12 @@
     &.medium {
       height: 70px;
       width: 140px;
+      &.export {
+        background: #253965;
+      }
+      &:hover {
+        background:#2e5099;
+      }
     }
     &.large {
       height: 100px;

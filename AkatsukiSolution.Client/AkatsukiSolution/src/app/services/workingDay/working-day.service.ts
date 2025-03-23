@@ -18,6 +18,10 @@ export class WorkingDayService {
     return this.http.get<WorkingDayItemVm[]>(this.url + 'WorkingDays/get?userId=' + employeeId)
   }
 
+  getAllWorkingDays(): Observable<WorkingDayItemVm[]>{
+    return this.http.get<WorkingDayItemVm[]>(this.url + 'WorkingDays/get')
+  }
+
   addWorkingDay(workingDay: WorkingDay): Observable<number>{
     return this.http.post<number>(this.url + 'WorkingDays/add', workingDay)
   }

@@ -1,4 +1,20 @@
 <div class="container">
-  <app-graph [projects]="totalProjectData"></app-graph>
+    <div class="filters">
+        <div class="form-group">
+            <label >Запослени:</label>
+            <select (change)="onSelectionChange($event)">
+              <option *ngFor="let employee of employees" [value]="employee.firstName + ' ' + employee.lastName"> 
+                {{ employee.firstName + ' ' + employee.lastName  }}
+              </option>
+            </select>
+        </div>
+        <app-graph [projects]="totalProjectData"></app-graph>
+        <app-button
+        [btnClass]="'medium export'"
+        [title]="'Експортуј у Excel'"
+        (btnClickEvent)="exportToExcel()"
+      >
+      </app-button>
+    </div>
   <app-table [headers]="headers" [data]="employeeData"></app-table>
 </div>
