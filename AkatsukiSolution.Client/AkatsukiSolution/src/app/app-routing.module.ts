@@ -4,8 +4,9 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 
-const routes: Routes = [{
-  path: '', component: AppComponent
+const routes: Routes = [
+  {
+  path: '', component: AppComponent, pathMatch: 'full'
 },
 {
   path: 'administracija', component: AdminComponent

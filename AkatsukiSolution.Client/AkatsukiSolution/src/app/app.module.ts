@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { WorkingDayService } from './services/workingDay/working-day.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { GraphComponent } from './components/graph/graph.component';
     GraphComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,  ReactiveFormsModule, FormsModule],
-  providers: [TestService],
+  providers: [TestService, WorkingDayService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

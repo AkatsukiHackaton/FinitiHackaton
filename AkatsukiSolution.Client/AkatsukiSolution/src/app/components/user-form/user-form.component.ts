@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Project } from 'src/app/models/project';
 import { TotalProjectTime } from 'src/app/models/totalProjectTime';
 import { WorkingDay } from 'src/app/models/workingDay';
+import { WorkingDayService } from 'src/app/services/workingDay/working-day.service';
 
 @Component({
   selector: 'app-user-form',
@@ -11,13 +12,15 @@ import { WorkingDay } from 'src/app/models/workingDay';
 })
 export class UserFormComponent {
   employeeForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private workingDayService: WorkingDayService) {
     this.employeeForm = this.fb.group({
       formItems: this.fb.array([this.createFormItem()]),
     });
   }
 
   selectedProjectId: number | null = null;
+
+  workingDay!: WorkingDay
 
   projects: Project[] = [
     { id: 1, name: 'TipTimes', managerId: 4 },
@@ -103,6 +106,7 @@ export class UserFormComponent {
 
   mapWorkingDay() {
     const workingDay: WorkingDay = this.formItems.value[0];
+    this.workingDay = workingDay;
     console.log(workingDay);
   }
 
@@ -117,6 +121,7 @@ export class UserFormComponent {
   onSubmit(): void {
     console.log(this.formItems.value);
     this.mapWorkingDay();
+    this.workingDayService.addWorkingDay(this.workingDay).subscribe(data => console.log(data));
     this.formItems.reset()
   }
 }
