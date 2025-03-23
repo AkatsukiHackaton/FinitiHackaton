@@ -14,10 +14,10 @@ namespace TimeTrackingApi.Infrastructure.Repositories
             _timeTrackingContext = timeTrackingContext;
         }
 
-        public async Task<List<WorkingDayViewModel>> GetWorkingDays(int userId)
+        public async Task<List<WorkingDayViewModel>> GetWorkingDays(int? userId)
         {
             return await _timeTrackingContext.WorkingDays
-                .Where(wd => wd.Employee.Id == userId)
+                .Where(wd => userId == null || wd.Employee.Id == userId)
                 .Select(wd => new WorkingDayViewModel
                 {
                     Id = wd.Id,

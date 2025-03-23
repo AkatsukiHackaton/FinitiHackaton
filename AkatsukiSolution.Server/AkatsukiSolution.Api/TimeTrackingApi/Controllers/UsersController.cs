@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Api.Filters;
+using Microsoft.AspNetCore.Mvc;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
 
 namespace TimeTrackingApi.Controllers
 {
+    [TypeFilter(typeof(ApiExceptionFilterAttribute))]
     [Route("[controller]")]
     [ApiController]
     public class UsersController : ControllerBase

@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
-using TimeTrackingApi.Models;
 using TimeTrackingApi.ModelsDto;
 
 namespace TimeTrackingApi.Controllers
 {
+    [TypeFilter(typeof(ApiExceptionFilterAttribute))]
     [Route("[controller]")]
     [ApiController]
     public class WorkingDaysController : ControllerBase
@@ -18,7 +18,7 @@ namespace TimeTrackingApi.Controllers
         }
 
         [HttpGet("get")]
-        public async Task<IActionResult> GetWorkingDays(int userId)
+        public async Task<IActionResult> GetWorkingDays(int? userId)
         {
             return Ok(await _workingDayRepository.GetWorkingDays(userId));
         }
