@@ -3,6 +3,7 @@ using TimeTrackingApi.Infrastructure;
 using TimeTrackingApi.Infrastructure.Context;
 using TimeTrackingApi.Infrastructure.Repositories;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
+using TimeTrackingApi.Logger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddTransient<IWorkingDayRepository, WorkingDayRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<ITimeTrackingLogger, TimeTrackingLogger>();
 
 builder.Services.AddCors(options =>
 {

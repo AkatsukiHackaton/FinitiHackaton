@@ -1,6 +1,7 @@
 ﻿using Api.Filters;
 using Microsoft.AspNetCore.Mvc;
 using TimeTrackingApi.Infrastructure.Repositories.Interfaces;
+using TimeTrackingApi.Models;
 using TimeTrackingApi.ModelsDto;
 
 namespace TimeTrackingApi.Controllers
@@ -32,13 +33,15 @@ namespace TimeTrackingApi.Controllers
         [HttpDelete("delete")]
         public async Task<IActionResult> Delete(int id)
         {
-            return Ok(_workingDayRepository.Delete(id));
+            await _workingDayRepository.Delete(id);
+            return Ok();
         }
 
         [HttpPatch("edit")]
         public async Task<IActionResult> Edit([FromBody] WorkingDayDto workingDay)
         {
-            return Ok(_workingDayRepository.Edit(workingDay));
+            await _workingDayRepository.Edit(workingDay);
+            return Ok();
         }
     }
 }
