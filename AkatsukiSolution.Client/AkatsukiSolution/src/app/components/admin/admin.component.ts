@@ -76,7 +76,7 @@ export class AdminComponent {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Employees');
 
-    XLSX.writeFile(wb, 'izvestaj.xlsx');
+    XLSX.writeFile(wb, `izvestaj_${new Date().toDateString()}.xlsx`);
   }
 
   formProjectData(data: WorkingDayItemVm[]) {
