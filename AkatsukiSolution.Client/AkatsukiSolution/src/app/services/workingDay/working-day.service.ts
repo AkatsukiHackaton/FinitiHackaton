@@ -14,6 +14,10 @@ export class WorkingDayService {
   url:string = environment.testUrl
 
   getWorkingDay(employeeId: number): Observable<WorkingDay>{
-    return this.http.get<WorkingDay>(this.url + 'WorkingDays/get?userId=' + employeeId, { withCredentials: true })
+    return this.http.get<WorkingDay>(this.url + 'WorkingDays/get?userId=' + employeeId)
+  }
+
+  addWorkingDay(workingDay: WorkingDay): Observable<number>{
+    return this.http.post<number>(this.url + 'WorkingDays/add', workingDay)
   }
 }
