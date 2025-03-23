@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { Chart, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, BarController } from 'chart.js';
 import { TotalProjectTime } from 'src/app/models/totalProjectTime';
 
@@ -11,7 +11,7 @@ Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, B
 })
 export class GraphComponent {
 
-  @Input() projects!: TotalProjectTime[]
+  @Input() projects: TotalProjectTime[] = []
 
   chart: any;
 
@@ -19,9 +19,19 @@ export class GraphComponent {
     this.createChart();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['projects']) {
+      if (this.chart) {
+        this.chart.destroy();
+      }
+
+      this.createChart();
+    }
+  }
+
   createChart() {
-    const projectNames = this.projects.map(p => p.projectName);
-    const totalHours = this.projects.map(p => p.totalHours);
+    const projectNames = this.projects?.map(p => p.projectName);
+    const totalHours = this.projects?.map(p => p.totalHours);
 
     this.chart = new Chart('projectHoursChart', {
       type: 'bar', 

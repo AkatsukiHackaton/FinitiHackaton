@@ -1,8 +1,8 @@
 export class WorkingDayItemVm {
   id!: number;
-  date!: Date;
+  date!: Date | string;
   taskDescription!: string;
   hours!: number;
-  userFullName!: string;
+  employeeFullName!: string;
   projectName!: string;
 }
