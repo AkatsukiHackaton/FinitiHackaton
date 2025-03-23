@@ -7,16 +7,23 @@
     cursor: pointer;
     max-width: 100%;
     transition: all 0.3s ease;
-    & .small {
-      width: 50px;
-      height: 100px;
+    &.small {
+      height: 36px;
+      width: 100px;
+      &.confirm {
+        background: rgb(47, 216, 47);
+      }
+
+      &:hover {
+        background: rgb(7, 206, 7);
+      }
     }
     &.medium {
-      width: 70px;
-      height: 140px;
+      height: 70px;
+      width: 140px;
     }
     &.large {
-      width: 100px;
-      height: 200px;
+      height: 100px;
+      width: 200px;
     }
 }

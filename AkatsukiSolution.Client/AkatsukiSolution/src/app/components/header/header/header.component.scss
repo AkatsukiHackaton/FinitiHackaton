@@ -1,18 +1,32 @@
 .header-container {
-    // padding-left: 10%;
-    // padding-right: 10%;
-    width: 80vw;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: #253965;
-    color: #fff;
-    .panel {
-        :first-child{
-            pointer-events: none;
+  // padding-left: 10%;
+  // padding-right: 10%;
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #253965;
+  color: #fff;
+  .panel {
+    a {
+      transition: 1s ease;
+      display: inline-block; /* or 'block' */
+      height: 200px; /* Set your desired height */
+      line-height: 200px;
+      :first-child {
+        pointer-events: none;
+      }
+      &.active {
+          background: #fff;
+          color: #1d1d1d;
+          font-size: 25px;
         }
-        cursor: pointer;
-        list-style-type: none;
+        &:hover {
+          @extend .active;
+        }
     }
+    cursor: pointer;
+    list-style-type: none;
+  }
 }
